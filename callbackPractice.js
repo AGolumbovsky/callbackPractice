@@ -3,6 +3,7 @@ Below is a sample problem
 
   //code here for sayHi
 
+
    sayHi('Hi Katie', function(thingToSay){
       alert(thingToSay);
    });
@@ -26,9 +27,14 @@ and what you should write is the favNum function that makes the code above work,
 
   //Code Here for first
   
+  
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
+var first = function(names, cb) {
+  cb(names[0]);
+}
 first(names, function(firstName){
   console.log('The first name in names is ', firstName)
+
 });
 
 
@@ -41,6 +47,9 @@ first(names, function(firstName){
   //Code Here for last
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
+var last = function(names, cb) {
+  cb(names[names.length-1]);
+}
 last(names, function(lastName){
   console.log('The last name in names is ', lastName);
 });
@@ -58,9 +67,13 @@ last(names, function(lastName){
 
   //Code Here for multiply
 
+var multiply = function(par1, par2, cb){
+  answer = par1 * par2;
+  cb(answer);
+};
 multiply(4, 3, function(answer){
   console.log('The answer is ', answer); //should console.log 12
-})
+});
 
 
 
@@ -69,10 +82,20 @@ multiply(4, 3, function(answer){
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
 
-
-
-
   //Code Here for contains
+var result = false;
+var contains = function(namesArr, PosVal, cb){
+  for (var i = namesArr.length-1; i < 0; i--){
+    if (namesArr[i] === PosVal){
+      result = true;
+      cb()
+    }
+  
+
+  }
+  
+  cb(result);
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 contains(names, 'Colt', function(result){
